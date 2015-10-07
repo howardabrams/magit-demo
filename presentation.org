@@ -64,7 +64,7 @@
 
   Jump right in!  M-x package-install magit
 
-  Clone =github.com/howardabrams/magit-intro=
+  Clone =github.com/howardabrams/magit-demo=
    Run: =gitrepo-history-conflict.sh=
    Run: =gitrepo-history-nice.sh=
 
