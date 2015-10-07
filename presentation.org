@@ -3,6 +3,7 @@
 #+EMAIL:  howard.abrams@gmail.com
 #+DATE:   2015 Sep 23
 #+TAGS:   emacs presentation
+#+STARTUP: inlineimages
 
 * What is it?
 
@@ -56,8 +57,9 @@
   Using [[https://www.gerritcodereview.com/][Gerrit]] requires a ‘straight’ history
   with no ‘twigs’ making divisions.
 
-  This means re-basing...
+  [[file:no-twigs.png]]
 
+  Good idea, but means re-basing...
   Magit shines with interactive rebasing.
 
 * How to Learn?
