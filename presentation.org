@@ -1,0 +1,82 @@
+#+TITLE:  Magit
+#+AUTHOR: Howard Abrams
+#+EMAIL:  howard.abrams@gmail.com
+#+DATE:   2015 Sep 23
+#+TAGS:   emacs presentation
+
+* What is it?
+
+  [[https://github.com/magit/magit][Magit]] is a Git Porcelain for Emacs
+
+  This evening has two goals:
+
+  - Brief introduction to Magit
+    (Just enough to get you started)
+
+  - Demo to show Magit is compelling
+
+
+  Magit version 2.1 requires:
+  - Emacs 24.4
+  - Git 1.9.4
+
+* Porcelain?
+
+  Porcelain is interface,
+                 [[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain][plumbing]] is underneath.
+
+  - IDEs extensions to existing VCS:
+
+    - Think: [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][C-x v]] ...
+
+    - Expects standard behavior for git
+
+    - No git-specific features... can’t:
+      - create branches
+      - rebase
+      - squash commits
+
+* Command Line?
+
+  Command line is a Porcelain:
+
+    - Need to use commit IDs:
+          git rebase -i 4205ac43
+          git rebase -i HEAD~4
+
+    - Lots of typing. Aliases fix that.
+
+    - Error feedback is good...for a CLI
+
+  While not a bad interface,
+  Magit actually improves it.
+
+* But Wait, There's More!
+
+  Using [[https://www.gerritcodereview.com/][Gerrit]] requires a ‘straight’ history
+  with no ‘twigs’ making divisions.
+
+  This means re-basing...
+
+  Magit shines with interactive rebasing.
+
+* How to Learn?
+
+  Jump right in!  M-x package-install magit
+
+  Clone =github.com/howardabrams/magit-intro=
+   Run: =gitrepo-history-conflict.sh=
+   Run: =gitrepo-history-nice.sh=
+
+* Summary
+
+  - Home Page: [[https://github.com/magit/magit][github.com/magit/magit]]
+
+  - Online Tutorials and Books:
+    - [[http://magit.vc/manual/magit.html#Top][Magit Documentation]] and Info Mode
+    - [[https://www.masteringemacs.org/article/introduction-magit-emacs-mode-git][Mastering Emacs]], by Mickey Peterson
+    - [[http://daemianmack.com/magit-cheatsheet.html][Magit Cheatsheet]], by Daemian Mack
+
+  - Other Package Integrations:
+    - Gerrit: [[https://github.com/terranpro/magit-gerrit][github.com/terranpro/magit-gerrit]]
+    - Github: [[https://github.com/sigma/magit-gh-pulls][github.com/sigma/magit-gh-pulls]]
