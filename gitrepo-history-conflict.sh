@@ -4,7 +4,7 @@
 # Of course, I could easily create this once, and then backup the .git
 # directory...
 
-BASE=$(pwd)
+BASE="/tmp/git-sandbox"
 
 PROJECT=my-proj
 OTHER=.other-$PROJECT
@@ -207,3 +207,6 @@ touch tags
 
 # Create a file that must have been left over to be deleted.
 touch debug-output.txt
+
+echo
+echo "All done. Checkout the goodies:   $BASE/$PROJECT"

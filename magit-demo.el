@@ -14,18 +14,28 @@
 ;; ----------------------------------------------------------------------
 ;;  Create each function that represents a "presentation frame"
 
+(defun magitdemo-title-screen ()
+  (interactive)
+  (demo-it-frame-fullscreen)
+  ;;(set-frame-size nil 160 40)   ; Fit for 1280 x 720
+  (demo-it-title-screen "sub-title.org" 5)
+  (split-window-below)
+  (demo-it-show-image "pdx-emacs.png" nil)
+  (other-window 1)
+  (enlarge-window 1)
+  (message "Let's hear it for our first meeting!"))
+
 (defun magitdemo-load-presentation ()
   "Display magitdemo-demo.org (an 'org-mode' file) as a presentation."
-  (demo-it-frame-fullscreen)
   (delete-other-windows)
-  ;; (shell-command "./git-repo-setup.sh")
   (org-tree-slide-simple-profile)
   (demo-it-presentation "presentation.org" 5))
 
 (defun magitdemo-run-git-shell ()
   "Execute our source code in an Eshell buffer."
   (interactive)
-  (demo-it-start-eshell "my-proj")
+  (demo-it-start-eshell "/tmp/git-sandbox/my-proj" nil nil 'side)
+  (toggle-truncate-lines 1)
   (sit-for 1.4)
   (demo-it-run-in-eshell "git status")
   (sit-for 2.5)
@@ -43,14 +53,16 @@
 (defun magitdemo-run-git-long ()
   "Display a long, long command with an alias."
   (interactive)
+  (toggle-truncate-lines nil)
   (demo-it-run-in-eshell "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative")
   (insert "
 ")
+  (toggle-truncate-lines 1)
   (eshell-send-input))
 
 (defun magitdemo-start-magit ()
   (interactive)
-  (magit-status)
+  (magit-status "/tmp/git-sandbox/my-proj")
   (mwe:log-keyboard-commands 1)
   (text-scale-increase 2)
   (sit-for 5)
@@ -63,7 +75,7 @@
 
 (defun magitdemo-next-magit ()
   (interactive)
-  (magit-status "~/Dropbox/emacs-demos/magit-intro/da-quotes")
+  (magit-status "/tmp/git-sandbox/da-quotes")
   (mwe:log-keyboard-commands 1)
   (text-scale-increase 2)
   (sit-for 5)
@@ -78,7 +90,7 @@
 
 This commit also includes a license file (finally).
 Should we actually complete this project?"
-                                             ?3 "Add favorite quote from Life of Brian")))
+                                             ?3 "Best quote from Life of Brian")))
 
 ;; ----------------------------------------------------------------------
 ;; Demonstration and/or Presentation Order
@@ -108,6 +120,7 @@ Should we actually complete this project?"
   ;; (global-set-key (kbd "<f1>") 'demo-it-step)
 
   (demo-it-start (list
+                  'magitdemo-title-screen
                   'magitdemo-load-presentation ; Frame 1
                   'magitdemo-run-git-shell     ; Frame 2
                   'magitdemo-run-git-long      ; Frame 3
@@ -115,8 +128,7 @@ Should we actually complete this project?"
                   'magitdemo-start-magit
                   'demo-it-presentation-return
                   'magitdemo-next-magit
-                  'demo-it-presentation-return
-                  ) t))
+                  'demo-it-presentation-return) t))
 
 ;; ----------------------------------------------------------------------
 ;; Start the presentation whenever this script is evaluated. Good idea?

@@ -5,7 +5,7 @@
 # The basis of this project is a "quotes" files... just to be a bit
 # more interesting.
 
-BASE=$(pwd)
+BASE="/tmp/git-sandbox"
 
 PROJECT=da-quotes
 OTHER=.other-$PROJECT
@@ -127,8 +127,12 @@ addquote "Flying Circus" "It's certainly uncontaminated by cheese."
 
 git push
 
-addquote "Life of Brian" "I will not have my fwends widiculed by the common soldiewy."
-addquote "Life of Brian" "Always look on the bright side of life."
+# The next two quotes must be from the user, and should be "good" and "better"
+# so that when we squash them, there is an obvious order to the commits...
+echo "I will not have my fwends widiculed by the common soldiewy." >> quotes.txt
+git commit -a --date "1 day" -m "Good quote from Life of Brian"
+echo "Always look on the bright side of life." >> quotes.txt
+git commit -a --date "1 day" -m "Better quote from Life of Brian"
 
 echo "Now, you listen here! He's not the Messiah. He's a very naughty boy!" >> quotes.txt
 git stash save "My favorite!"
@@ -154,3 +158,6 @@ echo "While I don't own the copyright to any of the quotes, the collection itsel
 git commit -a --author "Zaphod Beeblebrox <zod@hg2g.com>" --date "-1 day" -m "Added a license to the end of the readme."
 
 git push origin master
+
+echo
+echo "All done. Checkout the goodies:   $BASE/$PROJECT"
