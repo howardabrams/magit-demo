@@ -12,9 +12,11 @@
   This evening has two goals:
 
   - Brief introduction to Magit
-    (Just enough to get you started)
+               ... Just enough to get you started
 
   - Demo to show Magit is compelling
+
+
 
 
   Magit version 2.1 requires:
@@ -23,13 +25,14 @@
 
 * Porcelain?
 
-  Porcelain is interface,
-                 [[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain][plumbing]] is underneath.
+  Porcelain is interface, [[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain][plumbing]] is underneath.
+
+  - Graphical Git Interfaces are:
+    - Pretty, but separate from your work flow
+    - Don’t play well with your files
 
   - IDEs extensions to existing VCS:
-
     - Think: [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][C-x v]] ...
-
     - Expects standard behavior for git
 
     - No git-specific features... can’t:
@@ -43,7 +46,7 @@
 
     - Need to use commit IDs:
           git rebase -i 4205ac43
-          git rebase -i HEAD~4
+          git rebase -i HEAD~3
 
     - Lots of typing. Aliases fix that.
 
@@ -66,9 +69,9 @@
 
   Jump right in!  M-x package-install magit
 
-  Clone =github.com/howardabrams/magit-demo=
-   Run: =gitrepo-history-conflict.sh=
-   Run: =gitrepo-history-nice.sh=
+  Clone github.com/howardabrams/magit-demo
+   Run:  gitrepo-history-conflict.sh
+   Run:  gitrepo-history-nice.sh
 
 * Summary
 
