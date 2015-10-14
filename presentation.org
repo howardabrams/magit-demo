@@ -55,6 +55,10 @@
   While not a bad interface,
   Magit actually improves it.
 
+* Magit Position
+
+           [[file:magit-position.png]]
+
 * But Wait, There's More!
 
   Using [[https://www.gerritcodereview.com/][Gerrit]] requires a ‘straight’ history
