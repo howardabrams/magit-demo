@@ -5,7 +5,7 @@
 # The basis of this project is a "quotes" files... just to be a bit
 # more interesting.
 
-BASE="/tmp/git-sandbox"
+BASE="/tmp/sandbox"
 
 PROJECT=da-quotes
 OTHER=.other-$PROJECT
