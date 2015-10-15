@@ -58,18 +58,18 @@
   (demo-it-start-eshell "/tmp/sandbox/my-proj" nil nil 'side)
   (toggle-truncate-lines 1)
   (sit-for 1.4)
-  (demo-it-run-in-eshell "git status")
+  (demo-it-type-in-eshell "git status")
   (sit-for 2.5)
-  (demo-it-run-in-eshell "git branch")
+  (demo-it-type-in-eshell "git branch")
   (sit-for 3)
-  (demo-it-run-in-eshell "git log --pretty=oneline")
+  (demo-it-type-in-eshell "git log --pretty=oneline")
   (sit-for 3)
-  (demo-it-run-in-eshell "git show HEAD~3"))
+  (demo-it-type-in-eshell "git show HEAD~3"))
 
 (defun magitdemo-run-git-error ()
   "Display a git error message to see how it helps."
   (interactive)
-  (demo-it-run-in-eshell "git checkout master -force"))
+  (demo-it-type-in-eshell "git checkout master -force"))
 
 (defun magitdemo-run-git-long ()
   "Display a long, long command with an alias."
@@ -77,7 +77,7 @@
   ;; We want the typing of the command to wrap, but as soon as we are
   ;; done, we want it back to looking nicer on the screen.
   (toggle-truncate-lines nil)
-  (demo-it-run-in-eshell "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative")
+  (demo-it-type-in-eshell "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative")
   (insert "
 ")
   (toggle-truncate-lines 1)
