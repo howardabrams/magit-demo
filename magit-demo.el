@@ -39,6 +39,22 @@
 (defun magitdemo-run-git-shell ()
   "Execute our source code in an Eshell buffer.  We'll demonstrate the complexity associated with the Git CLI, by running a few commands."
   (interactive)
+
+  ;; The following commands will make the output of the git commands
+  ;; prettier, and nicer to look at. However, they shouldn't be seen...
+  (copy-file "/tmp/sandbox/my-proj/.git/config" "/tmp/sandbox/my-proj/.git/config.backup")
+  (with-current-buffer (find-file-noselect "/tmp/sandbox/my-proj/.git/config")
+    (goto-char (point-max))
+    (insert "[color]
+	status = always
+	branch = always
+	interactive = always
+	ui = always
+	diff = always")
+    (newline)
+    (save-buffer)
+    (kill-buffer))
+
   (demo-it-start-eshell "/tmp/sandbox/my-proj" nil nil 'side)
   (toggle-truncate-lines 1)
   (sit-for 1.4)
@@ -48,14 +64,12 @@
   (sit-for 3)
   (demo-it-run-in-eshell "git log --pretty=oneline")
   (sit-for 3)
-  (demo-it-run-in-eshell "git show --color HEAD~3"))
+  (demo-it-run-in-eshell "git show HEAD~3"))
 
 (defun magitdemo-run-git-error ()
   "Display a git error message to see how it helps."
   (interactive)
-  (demo-it-run-in-eshell "git checkout master -force")
-  (sit-for 3.5)
-  (demo-it-run-in-eshell "git commit --ammend"))
+  (demo-it-run-in-eshell "git checkout master -force"))
 
 (defun magitdemo-run-git-long ()
   "Display a long, long command with an alias."
@@ -72,6 +86,8 @@
 (defun magitdemo-start-magit ()
   "Start magit on the conflicted clone of a Git repository."
   (interactive)
+  (if (file-exists-p "/tmp/sandbox/my-proj/.git/config.backup")
+      (rename-file "/tmp/sandbox/my-proj/.git/config.backup" "/tmp/sandbox/my-proj/.git/config" t))
   (magit-status "/tmp/sandbox/my-proj")
   (text-scale-set 3)
 
