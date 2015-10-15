@@ -59,7 +59,7 @@ function append {
     else
         ID=$(expr $ID + 1)
     fi
-    echo "$ITEM #$ID: $*" >> $FILE
+    echo "$ITEM #$ID: $TEXT" >> $FILE
     echo
 }
 
