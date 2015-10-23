@@ -2,5 +2,6 @@
      Welcome to the Portland Emacs Hackers Group
 
 
-                              Howard Abrams
-                             @howardabrams
+                             *Howard Abrams*
+                             =@howardabrams=
+                           =www.howardism.org=

@@ -12,9 +12,9 @@
   This evening has two goals:
 
   - Brief introduction to Magit
-               ... Just enough to get you started
+               ... /Just enough to get you started/
 
-  - Demo to show Magit is compelling
+  - Demo to show Magit is *compelling*
 
 
 
@@ -25,17 +25,17 @@
 
 * Porcelain?
 
-  Porcelain is interface, [[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain][plumbing]] is underneath.
+  Porcelain is /interface/, [[https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain][plumbing]] is /underneath/.
 
-  - Graphical Git Interfaces are:
+  - Graphical Git Interfaces:
     - Don’t play well with your files
     - Pretty, but separate from your work flow
 
   - IDEs extensions to existing VCS:
-    - Think: [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][C-x v]] ...
+    - Think: =[[http://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html][C-x v]]= ...
     - Expects standard behavior for git
 
-    - No git-specific features... can’t:
+    - No /git-specific/ features... can’t:
       - create branches
       - rebase
       - squash commits
@@ -45,8 +45,8 @@
   Command line is a Porcelain:
 
     - Need to use commit IDs:
-          git rebase -i 4205ac43
-          git rebase -i HEAD~3
+          =git rebase -i 4205ac43=
+          =git rebase -i HEAD~3=
 
     - Lots of typing. Aliases fix that.
 
@@ -61,31 +61,41 @@
 
 * But Wait, There's More!
 
-  Using [[https://www.gerritcodereview.com/][Gerrit]] requires a ‘straight’ history
-  with no ‘twigs’ making divisions.
+  Using [[https://www.gerritcodereview.com/][Gerrit]] requires a *straight* history
+  with no /twigs/ making divisions.
 
   [[file:no-twigs.png]]
 
-  Good idea, but means re-basing...
+  Good idea, but means /re-basing/...
   Magit shines with interactive rebasing.
 
 * How to Learn?
 
-  Jump right in!  M-x package-install magit
+  Jump right in!  =M-x package-install magit=
+
+  #+begin_src emacs-lisp
+
+    (require 'magit)
+    (global-set-key (kbd "C-x g") 'magit-status)
+
+  #+end_src
 
   Clone [[http://github.com/howardabrams/magit-demo][github.com/howardabrams/magit-demo]]
-   Run:  gitrepo-history-conflict.sh
-   Run:  gitrepo-history-nice.sh
+
+   Run:  =gitrepo-history-conflict.sh=
+   Run:  =gitrepo-history-nice.sh=
 
 * Summary
 
   - Home Page: [[https://github.com/magit/magit][github.com/magit/magit]]
 
   - Online Tutorials and Books:
-    - [[http://magit.vc/manual/magit.html#Top][Magit Documentation]] and Info Mode
+    - [[http://magit.vc/manual/magit.html#Top][Magit Documentation]] and *Info Mode*
     - [[https://www.masteringemacs.org/article/introduction-magit-emacs-mode-git][Mastering Emacs]], by Mickey Peterson
     - [[http://daemianmack.com/magit-cheatsheet.html][Magit Cheatsheet]], by Daemian Mack
 
   - Other Package Integrations:
-    - Gerrit: [[https://github.com/terranpro/magit-gerrit][github.com/terranpro/magit-gerrit]]
-    - Github: [[https://github.com/sigma/magit-gh-pulls][github.com/sigma/magit-gh-pulls]]
+    - *Gerrit*: [[https://github.com/terranpro/magit-gerrit][github.com/terranpro/magit-gerrit]]
+    - *Github*: [[https://github.com/sigma/magit-gh-pulls][github.com/sigma/magit-gh-pulls]]
+
+** Questions?
