@@ -78,10 +78,10 @@
   ;; done, we want it back to looking nicer on the screen.
   (toggle-truncate-lines nil)
   (demo-it-type-in-eshell "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative")
-  (insert "
-")
   (toggle-truncate-lines 1)
+  (scroll-right 10)
   (eshell-send-input))
+
 
 (defun magitdemo-start-magit ()
   "Start magit on the conflicted clone of a Git repository."
@@ -104,6 +104,8 @@
 
   (other-window 1))
 
+
+
 (defun magitdemo-next-magit ()
   "Start magit on a nicer clone of a Git repository."
   (interactive)
@@ -114,6 +116,7 @@
   (mwe:log-keyboard-commands 1)
   (split-window-horizontally)
   (mwe:open-command-log-buffer)
+  (delete-region (point-min) (point-max))
   (enlarge-window-horizontally -15)
 
   (other-window 1))
@@ -157,6 +160,7 @@ Should we actually complete this project?"
                 'magit-process-mode-hook))
 
   (menu-bar-mode 0)
+  (global-set-key (kbd "<f11>") 'demo-it-insert-text)
 
   (demo-it-start (list
                   'magitdemo-title-screen      ; Frame 1
