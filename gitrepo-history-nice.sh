@@ -5,7 +5,7 @@
 # The basis of this project is a "quotes" files... just to be a bit
 # more interesting.
 
-BASE="/tmp/sandbox"
+BASE=${1:-"/tmp/sandbox"}
 
 PROJECT=da-quotes
 OTHER=.other-$PROJECT
@@ -62,17 +62,21 @@ function addquote {
 
     auth[0]="John Cleese <john@cheeseshop.com>"
     auth[1]="Graham Chapman <oldchap@beyondthepale.org>"
-    auth_num=$[ $RANDOM % 4 ]
+    auth_num=$[ $RANDOM % 3 ]
     if [ $auth_num -lt 2 ]
     then
         AOPT="${auth[$auth_num]}"
+    else
+        AOPT=""
     fi
 
     arr[0]="Quote"
     arr[1]="Another quote"
     arr[2]="Found something"
     arr[3]="Added quote"
-    rand=$[ $RANDOM % 4 ]
+    arr[4]="Found a goody"
+    arr[5]="A classic"
+    rand=$[ $RANDOM % 6 ]
     MSG="${arr[$rand]} from $C"
 
     git add quotes.txt

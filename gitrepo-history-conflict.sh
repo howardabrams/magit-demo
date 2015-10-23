@@ -4,7 +4,7 @@
 # Of course, I could easily create this once, and then backup the .git
 # directory...
 
-BASE="/tmp/sandbox"
+BASE=${1:-"/tmp/sandbox"}
 
 PROJECT=my-proj
 OTHER=.other-$PROJECT
