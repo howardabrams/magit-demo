@@ -1,5 +1,5 @@
-The source code for a demonstration of Magit in Emacs.  This uses the
-[[https://github.com/howardabrams/demo-it][demo-it]] package for Emacs. (I'll post a link to an online recording shortly)
+The source code to accompany the [[https://www.youtube.com/watch?v%3DvQO7F2Q9DwA][youtube video]] of Magit in Emacs.
+This uses the [[https://github.com/howardabrams/demo-it][demo-it]] package for Emacs.
 
 However, I would assume that most people would just want to run the
 two Bash scripts to help create a complex Git repository where they
